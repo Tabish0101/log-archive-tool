@@ -12,8 +12,22 @@ A lightweight Bash utility to compress system/application logs into timestamped 
 Run this single command in your terminal to install `log-archive` globally:
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/Tabish0101/log-archive/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/Tabish0101/log-archive-tool/main/install.sh | bash
+```
 
+This installs to `/usr/local/bin`, prompting for `sudo` only if that directory
+isn't writable. To install somewhere else — no elevation needed:
+
+```bash
+curl -sSL https://raw.githubusercontent.com/Tabish0101/log-archive-tool/main/install.sh | INSTALL_DIR="$HOME/.local/bin" bash
+```
+
+Or install from a clone, which uses the local `bin/log-archive` instead of downloading:
+
+```bash
+git clone https://github.com/Tabish0101/log-archive-tool.git
+cd log-archive-tool
+./install.sh
 ```
 
 ## Usage
