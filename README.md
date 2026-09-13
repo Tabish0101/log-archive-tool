@@ -13,3 +13,9 @@ Run this single command in your terminal to install `log-archive` globally:
 
 ```bash
 curl -sSL [https://raw.githubusercontent.com/Tabish0101/log-archive/main/install.sh](https://raw.githubusercontent.com/Tabish0101/log-archive/main/install.sh) | bash
+
+```
+
+### Roadmap challenge URL 
+
+[https://roadmap.sh/projects/log-archive-tool](https://roadmap.sh/projects/log-archive-tool)
