@@ -12,7 +12,7 @@ A lightweight Bash utility to compress system/application logs into timestamped 
 Run this single command in your terminal to install `log-archive` globally:
 
 ```bash
-curl -sSL [https://raw.githubusercontent.com/Tabish0101/log-archive/main/install.sh](https://raw.githubusercontent.com/Tabish0101/log-archive/main/install.sh) | bash
+curl -sSL https://raw.githubusercontent.com/Tabish0101/log-archive/main/install.sh | bash
 
 ```
 
