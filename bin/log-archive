@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# Check if a directory argument was provided
+if [ "$#" -ne 1 ]; then
+    echo "Error: Missing log directory."
+    echo "Usage: log-archive <log-directory>"
+    exit 1
+fi
+
+LOG_DIR="$1"
+
+# Check if the provided directory exists
+if [ ! -d "$LOG_DIR" ]; then
+    echo "Error: Directory '$LOG_DIR' does not exist."
+    exit 1
+fi
+
+# Define destination directory and filename format
+ARCHIVE_DIR="archived_logs"
+TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
+ARCHIVE_NAME="logs_archive_${TIMESTAMP}.tar.gz"
+LOG_FILE="${ARCHIVE_DIR}/archive_history.log"
+
+# Ensure the output directory exists
+mkdir -p "$ARCHIVE_DIR"
+
+# Compress the target log directory into tar.gz
+echo "Compressing logs from '$LOG_DIR'..."
+tar -czf "${ARCHIVE_DIR}/${ARCHIVE_NAME}" "$LOG_DIR"
+
+# Log the archiving event with date and time
+EVENT_TIME=$(date +"%Y-%m-%d %H:%M:%S")
+echo "[${EVENT_TIME}] Archived ${LOG_DIR} -> ${ARCHIVE_NAME}" >> "$LOG_FILE"
+
+echo "Success! Archive saved to: ${ARCHIVE_DIR}/${ARCHIVE_NAME}"
+echo "Logged archive history in: ${LOG_FILE}"
